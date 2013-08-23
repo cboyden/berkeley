@@ -451,28 +451,28 @@ nav ol {
    ========================================================================== */
 
 /*
- * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
- * 2. Improves image quality when scaled in IE7
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ * Zen 5.4 Update - 8/23/13: Replace img styles from _normalize.scss
+ * Zen 5.4: @todo Look into adding responsive embedded video.
  */
 
 img {
-  border: 0; /* 1 */
-  -ms-interpolation-mode: bicubic; /* 2 */
+  /* Remove border when inside `a` element in IE 8/9. */
+  border: 0;
+  @if $legacy-support-for-ie7 {
+    /* Improve image quality when scaled in IE 7. */
+    -ms-interpolation-mode: bicubic;
+  }
 
-  /* vertical-align: bottom; */ /* Suppress the space beneath the baseline */
+  /* Suppress the space beneath the baseline */
+  /* vertical-align: bottom; */
 
   /* Responsive images */
-  /* @todo Add responsive embedded video. */
   max-width: 100%;
   height: auto;
-}
-
-/* Responsive objects, iframes, embeds */
-object,
-iframe,
-embed {
-  max-width: 100%
+  @if $legacy-support-for-ie8 {
+    /* Correct IE 8 not scaling image height when resized. */
+    width: auto;
+  }
 }
 
 /*
