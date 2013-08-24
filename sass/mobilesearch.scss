@@ -45,6 +45,10 @@
 
   #page {
     border-bottom: 1px solid $page-color;
+    img {
+      /* Zen 5.4 Update - Correct IE 8 not scaling image height when resized. Do here instead of normalize.scss */
+      width: auto;
+    }
   }
 
   #bottomwrapper {
