@@ -508,7 +508,7 @@
   }
 
   th {
-    display: block;
+    display: inherit; /* Display table head as table row instead of block for better formatting */
     font: {
       weight: normal;
       style: italic;
@@ -523,6 +523,13 @@
     padding-right: 0;
     img {
       margin: 0 !important;
+    }
+  }
+
+  /* TinyMCE: Do not change table display while editing */
+  table.mceItemTable {
+    th, td {
+      display: table-cell !important;
     }
   }
 
